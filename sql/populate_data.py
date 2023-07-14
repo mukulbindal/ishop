@@ -50,4 +50,14 @@ for query in DM_CREATE_TABLE:
 
 con.commit()
 
+insert_data = [
+    "INSERT INTO USER(USERNAME, NAME, PASSWORD, DESIGNATION) VALUES ('mukul', 'Mukul', 'Mukul@123', 'OWNER')",
+    "INSERT INTO USER(USERNAME, NAME, PASSWORD, DESIGNATION) VALUES ('admin', 'admin', 'admin@123', 'Admin')",
+    "INSERT INTO USER(USERNAME, NAME, PASSWORD, DESIGNATION) VALUES ('rohan', 'Rohan', 'Rohan@123', 'CLERK')"
+]
+
+for query in insert_data:
+    cur.execute(query)
+con.commit()
+
 print("Tables created successfully")
