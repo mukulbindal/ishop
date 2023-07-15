@@ -28,6 +28,12 @@ python server.py
 
 Visit http://localhost:8000/docs to view the documentation and interact with the swagger UI
 
+## Screenshots
+
+![page 1](https://github.com/mukulbindal/ishop/blob/main/images/page1.png?raw=true)
+
+![page 2](https://github.com/mukulbindal/ishop/blob/main/images/page2.png?raw=true)
+
 ## Code Details
 
 Implementation using FastAPI, Pydantics and SQLite3
