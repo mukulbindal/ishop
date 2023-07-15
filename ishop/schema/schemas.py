@@ -1,5 +1,5 @@
 from pydantic import BaseModel
-from typing import Optional
+from typing import Optional, List
 from datetime import datetime
 
 
@@ -53,3 +53,38 @@ class ProductEditRequest(BaseModel):
     buy_price: Optional[int]
     units_in_stock: Optional[int]
     sell_price: Optional[int]
+
+
+class SellItem(BaseModel):
+    product_id: int
+    sold_units: int
+
+# id, CustomerName, ProductId, SoldUnits, SoldBy, SoldDate
+
+
+class SellProductRequest(BaseModel):
+    customer_name: str
+    items: List[SellItem]
+
+
+class BillItems(BaseModel):
+    product_id: int
+    product_name: str
+    units: int
+    cost_per_unit: int
+    total_amount: int
+
+
+class Bill(BaseModel):
+    customer_name: str
+    items: List[BillItems]
+    total: int
+
+
+class Sales(BaseModel):
+    id: int
+    customer_name: str
+    product_id: int
+    sold_units: int
+    sold_by: int
+    sold_date: datetime

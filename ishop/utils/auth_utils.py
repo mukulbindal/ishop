@@ -2,7 +2,19 @@ import jwt
 from fastapi import Request, HTTPException
 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 from ..schema.schemas import User
+from passlib.context import CryptContext
+
+pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
+
 SECRET_KEY = "THIS IS MY SECRET KEY"
+
+
+def hash_password(password):
+    return pwd_context.hash(password)
+
+
+def verify_password(text_password, db_password):
+    return pwd_context.verify(text_password, db_password)
 
 
 def generate_token(data):

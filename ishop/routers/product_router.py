@@ -5,12 +5,12 @@ from ..schema.schemas import ProductRequest, ProductEditRequest
 product_router = APIRouter(prefix='/products')
 
 
-@product_router.post('/add', tags=['Products'], dependencies=[Depends(JWTBearer())])
+@product_router.post('/add', tags=['Products'], dependencies=[Depends(JWTBearer())], status_code=201)
 def create_product(product_req: ProductRequest, request: Request):
     return create_product_service(product_req, request.current_user)
 
 
-@product_router.put('/edit', tags=['Products'], dependencies=[Depends(JWTBearer())])
+@product_router.put('/edit', tags=['Products'], dependencies=[Depends(JWTBearer())], status_code=201)
 def edit_product(product_req: ProductEditRequest, request: Request):
     return edit_product_service(product_req, request.current_user)
 
